@@ -1,100 +1,84 @@
 # Similarity Classification Project
 
+## Overview
+This project focuses on calculating the cosine similarity between Vietnamese word pairs, finding k-nearest words, and classifying synonyms and antonyms. The project implements machine learning techniques using pre-trained word embeddings.
+
 ## A. Problem
 
-This project aims to implement several functionalities related to word similarity and classification of synonyms and antonyms using pre-trained word embeddings of Vietnamese words.
-
 1. **Cosine Similarity**: 
-   - Implement a function to calculate cosine similarity between word pairs using pre-trained embeddings.
-   - Test the implementation with word pairs from the **ViSim-400** dataset located in the `Datasets/ViSim-400` directory.
+   - Given pre-trained embeddings of Vietnamese words, implement a function for calculating cosine similarity between word pairs. 
+   - Test your program using word pairs in the **ViSim-400** dataset (located in `Datasets/ViSim-400`).
 
 2. **K-Nearest Words**: 
-   - Given a word \( w \), find \( k \) most-similar words to \( w \) using the cosine similarity function implemented in the first point.
+   - Given a word \( w \), find \( k \) most-similar words of \( w \) using the cosine similarity function implemented in question 1.
 
-3. **Synonym-Antonym Classification**:
-   - Implement a classifier (e.g., Logistic Regression, Multi-layer Perceptron) to distinguish between synonyms and antonyms.
-   - For training, use the dataset available in the **antonym-synonym set** directory:
-     - [Antonym-Synonym Set Dataset](https://github.com/NLP-Projects/Word-Similarity/tree/master/antonymsynonym%20set)
-   - For testing, use the **ViCon-400** dataset located in the `Datasets/ViCon-400` directory.
-   - Evaluate the experimental results using precision, recall, and F-measure (F1):
-     - **Precision**: 
-       \[
-       \text{Precision} = \frac{\text{True Positive}}{\text{True Positive} + \text{False Positive}}
-       \]
-     - **Recall**: 
-       \[
-       \text{Recall} = \frac{\text{True Positive}}{\text{True Positive} + \text{False Negative}}
-       \]
-     - **F1 Score**: 
-       \[
-       F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
-       \]
+3. **Synonym-Antonym Classification**: 
+   - Implement a classifier (Logistic Regression, Multi-layer Perceptron, etc.) for distinguishing synonyms and antonyms. 
+   - For training, use the dataset available in the directory `antonym-synonym set`: [Antonym-Synonym Set](https://github.com/NLP-Projects/Word-Similarity/tree/master/antonymsynonym%20set).
+   - For testing, use the **ViCon-400** dataset (located in `Datasets/ViCon-400`).
+   - Experimental results are evaluated by precision scores, recall scores, and F-measure (F1).
 
-## B. Programming Language and Tool
+   \[
+   \text{Precision} = \frac{\text{True Positive}}{\text{True Positive} + \text{False Positive}}
+   \]
+
+   \[
+   \text{Recall} = \frac{\text{True Positive}}{\text{True Positive} + \text{False Negative}}
+   \]
+
+   \[
+   F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+   \]
+
+## B. Programming Language and Tools
 
 1. **Programming Language**: Python
-2. **Machine Learning Library**: Scikit-learn ([scikit-learn.org](https://scikit-learn.org/))
+2. **Machine Learning Library**: [Scikit-learn](https://scikit-learn.org/)
 
 ## C. Data Sets
 
-Data sets are available at: [NLP-Projects Word-Similarity](https://github.com/NLP-Projects/Word-Similarity)
-
-1. **Pre-trained Word2Vec**: 
-   - Located in the `Word2vec` directory. For example, the word `sinh_viên` is represented by a 150-dimensional vector:
+1. **Pre-trained Word2Vec**: Located in the directory `Word2vec`.
+   - Example representation of the word “sinh_viên” as a 150-dimension vector:
    ```
-   sinh_viên -0.16830535 -0.46649584 ... -0.17137058
+   sinh_viên -0.16830535 -0.46649584 -0.09095726 0.26220384 ...
    ```
 
-2. **ViSim-400 Dataset**: 
-   - Located in the `Datasets/ViSim-400` directory.
-   - Line format and examples:
+2. **ViSim-400 Dataset**: Located in `Datasets/ViSim-400`.
+   - Line format and examples (Sim1 represents human rating of similarity in the interval [0,4], Sim2 represents human rating of similarity in the interval [0,6]):
    ```
    Word1 Word2 POS Sim1 Sim2 STD
    biến ngập V 3.13 5.22 0.72
    động tĩnh V 0.6 1.0 0.95
+   ...
    ```
 
-3. **ViCon-400 Dataset**: 
-   - Located in the `Datasets/ViCon-400` directory.
+3. **VCon-400 Dataset**: Located in `Datasets/ViCon-400`.
    - Line format and examples:
    ```
    Word1 Word2 Relation
    hời_hợt nông_cạn SYN
    thảnh_thơi ưu_tư ANT
+   ...
    ```
 
-4. **Reference Documents**: 
-   - Located in the `Reference` directory.
+4. **Reference Documents**: Located in the `Reference` directory.
 
-## D. Installation and Usage
+## How to Run the Project
 
-### Installation
+1. Clone the repository:
+   ```bash
+   !git clone https://github.com/bacngv/SIMILARITY-CLASSIFICATION
+   ```
 
-To install the required packages, run the following command:
+2. Install the required packages:
+   ```bash
+   !pip install -r ./SIMILARITY-CLASSIFICATION/requirements.txt
+   ```
 
-```bash
-pip install -r ./SIMILARITY-CLASSIFICATION/requirements.txt
-```
+3. Run the main program:
+   ```bash
+   !python ./SIMILARITY-CLASSIFICATION/main.py
+   ```
 
-### Running the Project
-
-To execute the main program, run:
-
-```bash
-python ./SIMILARITY-CLASSIFICATION/main.py
-```
-
-## E. Project Structure
-
-- `./SIMILARITY-CLASSIFICATION/`: Main project directory.
-- `./SIMILARITY-CLASSIFICATION/main.py`: Main script to run the project.
-- `./SIMILARITY-CLASSIFICATION/word_embeddings.py`: Contains functions for loading word embeddings and calculating cosine similarity.
-- `./SIMILARITY-CLASSIFICATION/nearest_words.py`: Contains functions for finding k-nearest words.
-- `./SIMILARITY-CLASSIFICATION/classifier.py`: Contains functions for loading datasets and training/testing the classifier.
-- `./SIMILARITY-CLASSIFICATION/datasets/`: Directory containing datasets for testing.
-- `./SIMILARITY-CLASSIFICATION/antonym-synonym set/`: Directory containing antonym and synonym datasets.
-- `./SIMILARITY-CLASSIFICATION/requirements.txt`: File listing the required Python packages.
-
-## F. License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
