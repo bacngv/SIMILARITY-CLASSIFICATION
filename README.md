@@ -18,18 +18,6 @@ This project focuses on calculating the cosine similarity between Vietnamese wor
    - For testing, use the **ViCon-400** dataset (located in `Datasets/ViCon-400`).
    - Experimental results are evaluated by precision scores, recall scores, and F-measure (F1).
 
-   \[
-   \text{Precision} = \frac{\text{True Positive}}{\text{True Positive} + \text{False Positive}}
-   \]
-
-   \[
-   \text{Recall} = \frac{\text{True Positive}}{\text{True Positive} + \text{False Negative}}
-   \]
-
-   \[
-   F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
-   \]
-
 ## B. Programming Language and Tools
 
 1. **Programming Language**: Python
