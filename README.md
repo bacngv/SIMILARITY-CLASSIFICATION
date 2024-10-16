@@ -55,17 +55,17 @@ This project focuses on calculating the cosine similarity between Vietnamese wor
 
 1. Clone the repository:
    ```bash
-   !git clone https://github.com/bacngv/SIMILARITY-CLASSIFICATION
+   git clone https://github.com/bacngv/SIMILARITY-CLASSIFICATION
    ```
 
 2. Install the required packages:
    ```bash
-   !pip install -r ./SIMILARITY-CLASSIFICATION/requirements.txt
+   pip install -r ./SIMILARITY-CLASSIFICATION/requirements.txt
    ```
 
 3. Run the main program:
    ```bash
-   !python ./SIMILARITY-CLASSIFICATION/main.py
+   python ./SIMILARITY-CLASSIFICATION/main.py
    ```
 
 ## License
