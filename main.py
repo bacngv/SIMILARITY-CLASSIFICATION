@@ -1,8 +1,17 @@
+import os
+import gdown
 from word_embeddings import load_word_embeddings, test_cosine_similarity
 from nearest_words import get_k_nearest_words
 from classifier import load_antonym_synonym_data, train_classifier, test_classifier_on_vicon
 
 def main():
+    # Create the directory if it doesn't exist
+    os.makedirs('./SIMILARITY-CLASSIFICATION', exist_ok=True)
+    
+    # Download W2V_150.txt from Google Drive
+    gdown.download('https://drive.google.com/uc?id=1rumN4auP1vAc6e3pARZ76vCTYrUwPSkF', 
+                   './SIMILARITY-CLASSIFICATION/W2V_150.txt', quiet=False)
+    
     # Load word embeddings
     word_embeddings = load_word_embeddings('./SIMILARITY-CLASSIFICATION/W2V_150.txt')
     
